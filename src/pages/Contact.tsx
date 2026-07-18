@@ -1,50 +1,132 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from "react-icons/fa";
 import { FaUser, FaEnvelope, FaPhone, FaMessage } from "react-icons/fa6";
+
 const Contact = () => {
+  const socials = [
+    {
+      icon: <FaLinkedin />,
+      link: "https://www.linkedin.com/in/kapil-goyal-8a6336226/",
+    },
+    {
+      icon: <FaGithub />,
+      link: "https://github.com/goyal2506",
+    },
+    {
+      icon: <FaInstagram />,
+      link: "https://instagram.com/goyal_2506",
+    },
+    {
+      icon: <FaTelegram />,
+      link: "https://telegram.org/",
+    },
+  ];
+
   return (
     <section
       id="contact"
-      className="relative min-h-screen overflow-hidden bg-[#050816] px-6 py-32 text-white"
+      className="
+      relative
+      min-h-screen
+      overflow-hidden
+      bg-[#050816]
+      px-4
+      py-20
+      text-white
+      sm:px-6
+      sm:py-28
+      lg:py-32
+      "
     >
-      {/* Background 3D Lights */}
-      <motion.div
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -80, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-        }}
-        className="absolute left-10 top-20 h-96 w-96 rounded-full bg-cyan-500/20 blur-[120px]"
-      />
+      {/* Background Glow */}
 
       <motion.div
         animate={{
-          x: [0, -100, 0],
-          y: [0, 100, 0],
+          x: [0, 120, 0],
+          y: [0, -80, 0],
         }}
         transition={{
           duration: 12,
           repeat: Infinity,
         }}
-        className="absolute bottom-10 right-10 h-96 w-96 rounded-full bg-purple-600/20 blur-[120px]"
+        className="
+        absolute
+        left-[-100px]
+        top-20
+        h-72
+        w-72
+        rounded-full
+        bg-cyan-500/20
+        blur-[120px]
+        sm:h-96
+        sm:w-96
+        "
+      />
+
+      <motion.div
+        animate={{
+          x: [0, -120, 0],
+          y: [0, 100, 0],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+        }}
+        className="
+        absolute
+        bottom-10
+        right-[-100px]
+        h-72
+        w-72
+        rounded-full
+        bg-purple-600/20
+        blur-[120px]
+        sm:h-96
+        sm:w-96
+        "
       />
 
       <div className="relative z-10 mx-auto max-w-6xl">
+        {/* Heading */}
+
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="mb-20 text-center text-6xl font-black"
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="
+          mb-12
+          text-center
+          text-4xl
+          font-black
+          sm:mb-16
+          sm:text-5xl
+          lg:mb-20
+          lg:text-6xl
+          "
         >
           Contact{" "}
-          <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+          <span
+            className="
+            bg-gradient-to-r
+            from-cyan-400
+            to-purple-500
+            bg-clip-text
+            text-transparent
+            "
+          >
             Me
           </span>
         </motion.h1>
 
-        {/* 3D Card */}
+        {/* 3D Wrapper */}
 
         <motion.div
           initial={{
@@ -63,16 +145,34 @@ const Contact = () => {
           style={{
             perspective: "1200px",
           }}
-          className="mx-auto max-w-5xl"
         >
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,.2)]">
-            <div className="grid gap-10 md:grid-cols-2">
+          <div
+            className="
+            rounded-3xl
+            border
+            border-white/10
+            bg-white/5
+            p-5
+            backdrop-blur-2xl
+            shadow-[0_0_80px_rgba(34,211,238,.2)]
+            sm:p-8
+            lg:p-10
+            "
+          >
+            <div
+              className="
+              grid
+              gap-8
+              lg:grid-cols-2
+              lg:gap-10
+              "
+            >
               {/* FORM */}
 
               <form
                 action="https://api.web3forms.com/submit"
                 method="POST"
-                className="space-y-6"
+                className="space-y-5"
               >
                 <input
                   type="hidden"
@@ -80,94 +180,127 @@ const Contact = () => {
                   value="d9db1f32-f304-4c2e-ad7d-f4cdbf888ce6"
                 />
 
-                <h2 className="text-3xl font-bold">
+                <h2
+                  className="
+                  text-2xl
+                  font-bold
+                  sm:text-3xl
+                  "
+                >
                   Get In Touch
                   <span className="text-cyan-400">.</span>
                 </h2>
 
-                <div className="grid gap-6 md:grid-cols-2">
-                  {/* First Name */}
+                <div
+                  className="
+                  grid
+                  gap-5
+                  sm:grid-cols-2
+                  "
+                >
+                  <Input
+                    icon={<FaUser />}
+                    name="first_name"
+                    placeholder="First Name"
+                  />
 
-                  <div className="group relative">
-                    <FaUser className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 transition group-focus-within:text-cyan-400" />
-
-                    <input
-                      type="text"
-                      name="first_name"
-                      required
-                      placeholder="First Name"
-                      className="peer w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none backdrop-blur-xl transition-all duration-300 focus:border-cyan-400 focus:bg-white/10 focus:shadow-[0_0_30px_rgba(34,211,238,.25)]"
-                    />
-                  </div>
-
-                  {/* Last Name */}
-
-                  <div className="group relative">
-                    <FaUser className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400" />
-
-                    <input
-                      type="text"
-                      name="last_name"
-                      placeholder="Last Name"
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none backdrop-blur-xl transition-all focus:border-purple-400 focus:bg-white/10 focus:shadow-[0_0_30px_rgba(168,85,247,.3)]"
-                    />
-                  </div>
-                </div>
-
-                {/* Email */}
-
-                <div className="relative group">
-                  <FaEnvelope className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-400" />
-
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Email Address"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none backdrop-blur-xl transition-all focus:border-cyan-400 focus:shadow-[0_0_30px_rgba(34,211,238,.25)]"
+                  <Input
+                    icon={<FaUser />}
+                    name="last_name"
+                    placeholder="Last Name"
                   />
                 </div>
 
-                {/* Phone */}
+                <Input
+                  icon={<FaEnvelope />}
+                  name="email"
+                  type="email"
+                  placeholder="Email Address"
+                />
+
+                <Input
+                  icon={<FaPhone />}
+                  name="phone"
+                  placeholder="Phone Number"
+                />
 
                 <div className="relative group">
-                  <FaPhone className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400" />
-
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone Number"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none backdrop-blur-xl transition-all focus:border-blue-400 focus:shadow-[0_0_30px_rgba(59,130,246,.3)]"
+                  <FaMessage
+                    className="
+                    absolute
+                    left-5
+                    top-5
+                    text-gray-400
+                    "
                   />
-                </div>
-
-                {/* Message */}
-
-                <div className="relative group">
-                  <FaMessage className="absolute left-5 top-6 text-gray-400" />
 
                   <textarea
                     name="message"
-                    rows={5}
-                    required
+                    rows={4}
                     placeholder="Write your message..."
-                    className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 py-5 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none backdrop-blur-xl transition-all focus:border-purple-400 focus:shadow-[0_0_30px_rgba(168,85,247,.3)]"
+                    className="
+                    w-full
+                    resize-none
+                    rounded-2xl
+                    border
+                    border-white/10
+                    bg-white/5
+                    py-4
+                    pl-12
+                    pr-5
+                    text-white
+                    placeholder:text-gray-500
+                    outline-none
+                    backdrop-blur-xl
+                    transition
+                    focus:border-purple-400
+                    focus:shadow-[0_0_30px_rgba(168,85,247,.3)]
+                    "
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="group relative w-full overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 py-4 font-bold text-white shadow-[0_0_40px_rgba(34,211,238,.4)] transition hover:scale-105"
+                  className="
+                  group
+                  relative
+                  w-full
+                  overflow-hidden
+                  rounded-full
+                  bg-gradient-to-r
+                  from-cyan-500
+                  via-blue-500
+                  to-purple-600
+                  py-4
+                  font-bold
+                  shadow-[0_0_40px_rgba(34,211,238,.4)]
+                  transition
+                  hover:scale-105
+                  "
                 >
                   <span className="relative z-10">Send Message 🚀</span>
 
-                  <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition group-hover:translate-x-0" />
+                  <div
+                    className="
+                    absolute
+                    inset-0
+                    translate-x-[-100%]
+                    bg-white/20
+                    transition
+                    group-hover:translate-x-0
+                    "
+                  />
                 </button>
               </form>
 
-              {/* RIGHT SIDE */}
+              {/* RIGHT CARD */}
 
-              <div className="flex flex-col justify-center">
+              <div
+                className="
+                flex
+                items-center
+                "
+              >
                 <motion.div
                   animate={{
                     y: [0, -15, 0],
@@ -176,38 +309,51 @@ const Contact = () => {
                     duration: 4,
                     repeat: Infinity,
                   }}
-                  className="rounded-3xl border border-cyan-400/20 bg-black/30 p-8 shadow-[0_0_50px_rgba(34,211,238,.2)]"
+                  className="
+                  w-full
+                  rounded-3xl
+                  border
+                  border-cyan-400/20
+                  bg-black/30
+                  p-6
+                  shadow-[0_0_50px_rgba(34,211,238,.2)]
+                  sm:p-8
+                  "
                 >
-                  <h2 className="text-4xl font-black">
+                  <h2
+                    className="
+                    text-3xl
+                    font-black
+                    sm:text-4xl
+                    "
+                  >
                     Let's Build
                     <br />
                     Something Amazing
                   </h2>
 
-                  <p className="mt-5 text-gray-400">
+                  <p
+                    className="
+                    mt-5
+                    text-base
+                    leading-7
+                    text-gray-400
+                    sm:text-lg
+                    "
+                  >
                     I am open for React development, frontend projects and
                     collaboration. Let's connect and create something impactful.
                   </p>
 
-                  <div className="mt-8 flex gap-5">
-                    {[
-                      {
-                        icon: <FaLinkedin />,
-                        link: "https://www.linkedin.com/in/kapil-goyal-8a6336226/",
-                      },
-                      {
-                        icon: <FaGithub />,
-                        link: "https://github.com/goyal2506",
-                      },
-                      {
-                        icon: <FaInstagram />,
-                        link: "https://instagram.com/goyal_2506",
-                      },
-                      {
-                        icon: <FaTelegram />,
-                        link: "https://telegram.org/",
-                      },
-                    ].map((item, index) => (
+                  <div
+                    className="
+                    mt-8
+                    flex
+                    flex-wrap
+                    gap-4
+                    "
+                  >
+                    {socials.map((item, index) => (
                       <motion.a
                         key={index}
                         href={item.link}
@@ -216,7 +362,24 @@ const Contact = () => {
                           y: -10,
                           rotate: 10,
                         }}
-                        className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl hover:bg-cyan-500 hover:text-black"
+                        className="
+                          flex
+                          h-12
+                          w-12
+                          items-center
+                          justify-center
+                          rounded-2xl
+                          border
+                          border-white/10
+                          bg-white/5
+                          text-xl
+                          transition
+                          hover:bg-cyan-500
+                          hover:text-black
+                          sm:h-14
+                          sm:w-14
+                          sm:text-2xl
+                          "
                       >
                         {item.icon}
                       </motion.a>
@@ -229,6 +392,61 @@ const Contact = () => {
         </motion.div>
       </div>
     </section>
+  );
+};
+
+const Input = ({
+  icon,
+  name,
+  placeholder,
+  type = "text",
+}: {
+  icon: React.ReactNode;
+  name: string;
+  placeholder: string;
+  type?: string;
+}) => {
+  return (
+    <div className="relative group">
+      <div
+        className="
+absolute
+left-5
+top-1/2
+-translate-y-1/2
+text-gray-400
+transition
+group-focus-within:text-cyan-400
+"
+      >
+        {icon}
+      </div>
+
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        required
+        className="
+            w-full
+            rounded-2xl
+            border
+            border-white/10
+            bg-white/5
+            py-3.5
+            pl-12
+            pr-5
+            text-white
+            placeholder:text-gray-500
+            outline-none
+            backdrop-blur-xl
+            transition
+            focus:border-cyan-400
+            focus:bg-white/10
+            focus:shadow-[0_0_30px_rgba(34,211,238,.25)]
+            "
+      />
+    </div>
   );
 };
 
