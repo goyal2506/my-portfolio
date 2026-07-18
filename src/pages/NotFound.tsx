@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050816] px-6 text-white">
-
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-[-150px] top-[-100px] h-[400px] w-[400px] rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="absolute bottom-[-150px] right-[-150px] h-[450px] w-[450px] rounded-full bg-purple-600/15 blur-[150px]" />
@@ -40,9 +39,7 @@ const NotFound = () => {
           404
         </motion.h1>
 
-        <h2 className="mt-6 text-3xl font-bold">
-          Oops! Page Not Found
-        </h2>
+        <h2 className="mt-6 text-3xl font-bold">Oops! Page Not Found</h2>
 
         <p className="mt-4 text-lg leading-8 text-gray-400">
           The page you're looking for doesn't exist or may have been moved.
