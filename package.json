@@ -4,12 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://goyal2506.github.io/my-portfolio",
-
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview --base /my-portfolio/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

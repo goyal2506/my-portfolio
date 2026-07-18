@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { AnimatePresence, motion } from "framer-motion";
 
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Skills", path: "/skills" },
+  { label: "Projects", path: "/projects" },
+  { label: "Experience", path: "/experience" },
+  { label: "Contact", path: "/contact" },
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  const navItems = [
-    "Home",
-    "About",
-    "Skills",
-    "Projects",
-    "Experience",
-    "Contact",
-  ];
 
   return (
     <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-5">
@@ -29,27 +29,28 @@ const Navbar = () => {
 
           <ul className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
-              <li key={item}>
-           <Link
-            to={`/${item.toLowerCase()}`}
-            className="rounded-full px-5 py-2 text-gray-300 transition hover:bg-white/10 hover:text-cyan-400"
-            >
-            {item}
-            </Link>
+              <li key={item.label}>
+                <Link
+                  to={item.path}
+                  className="rounded-full px-5 py-2 text-gray-300 transition hover:bg-white/10 hover:text-cyan-400"
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden lg:block rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white transition hover:scale-105"
           >
             Let's Talk
-          </a>
+          </Link>
 
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden text-white"
+            aria-label={open ? "Close menu" : "Open menu"}
           >
             {open ? (
               <HiXMark size={32} />
@@ -70,23 +71,24 @@ const Navbar = () => {
             >
               <ul className="flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
+                  <li key={item.label}>
+                    <Link
+                      to={item.path}
                       onClick={() => setOpen(false)}
                       className="block rounded-lg px-4 py-3 text-white transition hover:bg-cyan-500/20"
                     >
-                      {item}
-                    </a>
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
 
-                <a
-                  href="#contact"
-                  className="mt-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 text-center font-semibold text-white"
+                <Link
+                  to="/contact"
+                  onClick={() => setOpen(false)}
+                  className="mt-3 block rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 text-center font-semibold text-white"
                 >
                   Let's Talk
-                </a>
+                </Link>
               </ul>
             </motion.div>
           )}
