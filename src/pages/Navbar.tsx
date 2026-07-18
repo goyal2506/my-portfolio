@@ -30,12 +30,12 @@ const Navbar = () => {
           <ul className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
               <li key={item}>
-                <a
-                  href={`${item.toLowerCase()}`}
-                  className="rounded-full px-5 py-2 text-gray-300 transition hover:bg-white/10 hover:text-cyan-400"
-                >
-                  {item}
-                </a>
+           <Link
+            to={`/${item.toLowerCase()}`}
+            className="rounded-full px-5 py-2 text-gray-300 transition hover:bg-white/10 hover:text-cyan-400"
+            >
+            {item}
+            </Link>
               </li>
             ))}
           </ul>
